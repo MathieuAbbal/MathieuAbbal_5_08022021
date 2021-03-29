@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Le site web pour retrouver les meilleurs références en appareils photo vintage." />
+    <script src="https://kit.fontawesome.com/ce2a36e089.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Truculenta:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <title>Orinoco - Appareils photo vintage - Confirmation de commande</title>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header>
+        <!-- Navigation logo-->
+        <div class="navbar">
+            <a class="navbar__link" href="/index.html">
+                <img class="navbar__link img" src="/img/logo.png"
+                    alt="Logo de Orinoco, e-commerce d'appareils photo vintage" />
+            </a>
+            <!-- Btn accueil -->
+            <div class="navbar__wrap">
+                <a href="/index.html" class="nav-btn accueil">Accueil</a>
+                <!-- Btn panier -->
+                <a href="/panier.html" aria-label="panier" class="nav-btn">
+                    <i class="fas fa-shopping-basket navbar__icons"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    <div id="content" class="card">
+        <div class="commande">
+            <p class="text comm">Merci de nous avoir fait confiance !</p>
+            <i class="fas fa-check-circle"></i>
+            <p class="text comm">Votre colis vous sera expédié dans les meilleurs délais</p>
+            <p class="text comm">N° de commande : <span id="numCom"></span></p>
+            <p class="text comm">Prix total :<span id="finalPrice"></span></p>
+        </div>
+    </div>
+
+    <footer class="footer confirm">
+        <ul class="footer__networks">
+            <li class="footer__networks__item">
+                <a class="footer__networks__link footer-hover" aria-label="lien vers facebook"
+                    href="https://www.facebook.com" target="_blank" rel="nofollow"><i
+                        class="fab fa-facebook-square"></i></a>
+            </li>
+            <li class="footer__networks__item">
+                <a class="footer__networks__link footer-hover" aria-label="lien vers twitter"
+                    href="https://www.twitter.com" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="footer__networks__item">
+                <a class="footer__networks__link footer-hover" aria-label="lien vers instagram"
+                    href="https://www.instagram.com" target="_blank" rel="nofollow"><i class="fab fa-instagram"></i></a>
+            </li>
+            <li class="footer__networks__item">
+                <a class="footer__networks__link footer-hover" aria-label="lien vers pinterest"
+                    href="https://www.pinterest.fr/" target="_blank" rel="nofollow"><i class="fab fa-pinterest"></i></a>
+            </li>
+        </ul>
+        <div class="footer__wrap">
+            <p class="footer__text">Moyens de paiement Orinoco</p>
+            <ul class="footer__icons">
+                <li class="footer__icons__item">
+                    <i class="fab fa-cc-apple-pay"></i>
+                </li>
+                <li class="footer__icons__item">
+                    <i class="fab fa-cc-visa"></i>
+                </li>
+                <li class="footer__icons__item">
+                    <i class="fab fa-cc-mastercard"></i>
+                </li>
+                <li class="footer__icons__item">
+                    <i class="fab fa-cc-amex"></i>
+                </li>
+                <li class="footer__icons__item">
+                    <i class="fab fa-cc-paypal"></i>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script src="/js/localstorage.js"></script>
+    <script src="/js/confirmation.js" defer></script>
+
+</body>
+
+</html>
