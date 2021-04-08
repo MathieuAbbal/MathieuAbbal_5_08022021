@@ -17,9 +17,15 @@ addNumero.innerHTML = numCommande;
 const addPrice = document.getElementById('finalPrice');
 //génére le HTML dans le DOM
 addPrice.innerHTML = calculPrixPanier() + " € ";
+
+
+let contact = JSON.parse(localStorage.getItem("contact"));
+const addNom = document.getElementById('nomCom');
+addNom.innerHTML = contact.firstName;
+console.table(contact);
+
 /**
  * supprime le panier du local storage
 */
-
 localStorage.removeItem('basket');
-
+localStorage.removeItem('contact');

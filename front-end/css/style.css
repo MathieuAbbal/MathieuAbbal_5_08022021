@@ -409,8 +409,20 @@ label {
   padding: 10px;
 }
 #numCom,
-#finalPrice {
+#finalPrice,
+#nomCom {
   color: #59366a;
+  font-weight: 900;
+  display: contents;
+}
+#numCom {
+  display: block;
+}
+.fa-check-circle {
+  display: flex;
+  justify-content: center;
+  color: green;
+  font-size: x-large;
 }
 
 /*Footer*/
@@ -465,7 +477,7 @@ footer {
   margin-top: 300px;
 }
 /*mediaQuery*/
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .content {
     display: flex;
     justify-content: space-around;
@@ -476,6 +488,8 @@ footer {
     width: 33%;
     margin: 20px auto;
   }
+}
+@media (min-width: 1024px) {
   .empty {
     width: 20%;
   }
@@ -505,12 +519,7 @@ footer {
     margin: 100px auto;
   }
 }
-.fa-check-circle {
-  display: flex;
-  justify-content: center;
-  color: green;
-  font-size: x-large;
-}
+
 @media (max-width: 400px) {
   .btn {
     margin: 30px 10px 20px 10px;

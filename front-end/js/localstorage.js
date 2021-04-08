@@ -41,13 +41,13 @@ function ajoutLocalStorage(data) {
 
 /**Supprime le produit du panier
  * 
- * @param {object}  _id    - identifiant du produit à supprimer
+ * @param {object}  lens    - identifiant du produit à supprimer j'utilise lens car il peut y avoir le même id mais avec une lens différentes(donc ne supprime pas le produit en fonction de l'id)
  */
-function supprimeLocalStorage(_id) {
+function supprimeLocalStorage(lens) {
   //on récupère la valeur associée à la clé basket et on la transforme en objet Java Script
   let suppression = JSON.parse(localStorage.getItem("basket"));
-  //on crée et retourne  un tableau si id  est différent
-  const supressionPanier = suppression.filter((objet) => objet._id !== _id);
+  //on crée et retourne  un tableau si lens  est différent
+  const supressionPanier = suppression.filter((objet) => objet.lens !== lens);
   //on enregistre dans le localStorage le panier avec pour valeur la variable supressionPanier en Json
   localStorage.setItem("basket", JSON.stringify(supressionPanier));
   //si le panier est vide on vide les clés stockées

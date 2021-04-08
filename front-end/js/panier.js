@@ -24,7 +24,7 @@ if (basket.length > 0) {
                 </div>
 
                 <div>
-                    <button class="btn-success" onclick="supprimeLocalStorage('${objet._id}')">Supprimer</button>  
+                    <button class="btn-success" onclick="supprimeLocalStorage('${objet.lens}')">Supprimer</button>  
                 </div>
             </div>
             `;
@@ -56,11 +56,11 @@ document.querySelector('#formulaire').addEventListener("click", function () {
 
 
 //retourne un élément du DOM à partir de son identifiant
-const lastname = document.getElementById('nom ');
-const firstname = document.getElementById('prenom ');
-const address = document.getElementById('adresse ');
-const city = document.getElementById('ville ');
-const mail = document.getElementById('email ');
+const lastname = document.getElementById('nom');
+const firstname = document.getElementById('prenom');
+const address = document.getElementById('adresse');
+const city = document.getElementById('ville');
+const mail = document.getElementById('email');
 
 const form = document.querySelector("#formulaire");
 
@@ -69,51 +69,58 @@ const form = document.querySelector("#formulaire");
 form.addEventListener("submit", (e) => {
     e.preventDefault()
     let data = recuperationPanier();
-    // camera en tant que tableau à envoyer en POST
-    const products = [];
-    //on créer une boucle pour parcourir les éléments du tableau
-    data.forEach((camera) => {
-        //on ajoute les éléments au tableau
-        products.push(camera._id);
-    });
-    console.log(products)
-    // utilisateur à envoyer en objet en POST
-    let contact = {
-        firstName: firstname.value,
-        lastName: lastname.value,
-        address: address.value,
-        city: city.value,
-        email: mail.value,
-    };
+    if (basket == 0) {
+        alert("Votre panier est vide")
+    }
+    else {
+        // camera en tant que tableau à envoyer en POST
+        const products = [];
+        //on créer une boucle pour parcourir les éléments du tableau
+        data.forEach((camera) => {
+            //on ajoute les éléments au tableau
+            products.push(camera._id);
+        });
+        console.log(products)
+        // utilisateur à envoyer en objet en POST
+        let contact = {
+            firstName: firstname.value,
+            lastName: lastname.value,
+            address: address.value,
+            city: city.value,
+            email: mail.value,
+        };
+        localStorage.setItem("contact", JSON.stringify(contact));
+        // créer donnees comme objet contact + tableau products
+        const donnees = { contact, products };
 
-    // créer donnees comme objet contact + tableau products
-    const donnees = { contact, products };
+        // en-têtes pour la requête pour le POST
+        // qui contient mon objet donnees converti en Json
+        // on indique la nature et le format du document
+        const options = {
+            method: "POST",
+            body: JSON.stringify(donnees),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        };
+        function postFetch() {
+            // la requête POST 
+            fetch("http://localhost:3000/api/cameras/order", options)
+                // reçoit les données du back
+                .then(response => { // me renvoie un premiere prommesse
+                    if (response.ok) {
+                        return response.json() // Si response ok, retourne un objet json
+                    } else {
+                        Promise.reject(response.status); // sinon, me retroune la cause de l'echec
+                    };
+                })
 
-    // en-têtes pour la requête pour le POST
-    // qui contient mon objet donnees converti en Json
-    // on indique la nature et le format du document
-    const options = {
-        method: "POST",
-        body: JSON.stringify(donnees),
-        headers: {
-            "Content-Type": "application/json",
-        },
-    };
-
-    // la requête POST 
-    fetch("http://localhost:3000/api/cameras/order", options)
-        // reçoit les données du back
-        .then(response => { // me renvoie un premiere prommesse
-            if (response.ok) {
-                return response.json() // Si response ok, retourne un objet json
-            } else {
-                Promise.reject(response.status); // sinon, me retroune la cause de l'echec
-            };
-        })
-
-        // traitement pour l'obtention du numéro de commmande
-        .then((dataPost) => {
-            const orderId = dataPost.orderId;
-            window.location.assign(`confirmation.html?ncomm=${orderId}`);
-        })
+                // traitement pour l'obtention du numéro de commmande
+                .then((dataPost) => {
+                    const orderId = dataPost.orderId;
+                    window.location.assign(`confirmation.html?ncomm=${orderId}`);
+                })
+        }
+        postFetch();
+    }
 });

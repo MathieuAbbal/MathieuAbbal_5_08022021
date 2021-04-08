@@ -4,6 +4,7 @@ const addHtml = document.getElementById("content");
 const searchParams = new URLSearchParams(window.location.search);
 console.log(window.location.search); //ID apparait dans la console
 //injecte l'id du produit dans le fetch
+function afficheUnProduit (){
 fetch(`http://localhost:3000/api/cameras/${searchParams.get("id")}`)
     .then((response) => {
         // me renvoie une première prommesse
@@ -24,6 +25,7 @@ fetch(`http://localhost:3000/api/cameras/${searchParams.get("id")}`)
             lens += `<option value="${lentille}">${lentille}</option>`;
         });
         //Insertion du HTML dans le DOM
+        //Interpolation de variable
         addHtml.innerHTML += `
                 <div class="card produit">
                     <img alt="${data.name}" class="content__img" src="${data.imageUrl}">
@@ -69,7 +71,8 @@ fetch(`http://localhost:3000/api/cameras/${searchParams.get("id")}`)
         });      
         
     });  
-
+}
+afficheUnProduit();
 /** 
 /**Fonction pour calculer le prix total en fonction de la quantité
  * 
