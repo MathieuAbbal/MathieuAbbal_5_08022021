@@ -1,8 +1,13 @@
 const addHtml = document.getElementById("content");//retourne un élément du DOM à partir de son identifiant content
 const prixInHtml = document.getElementById("finalPrice");//retourne un élément du DOM à partir de son identifiant finalPrice
 const basket = recuperationPanier();//constante qui à pour valeur la fonction de récueration de panier
-
-
+function calculePrice(priceProdUnit) {
+    let quantites = document.getElementById("quantiteProduit");
+    quantites.addEventListener("change", (event) => {
+        const result = document.getElementById("totalPrice");
+        result.textContent = `${priceProdUnit}` * `${event.target.value}`;
+    });
+}
 if (basket.length > 0) {
     //on créer une boucle pour parcourir les éléments du tableau et générer le HTML 
     //on fait une interpolation de variable
@@ -20,7 +25,7 @@ if (basket.length > 0) {
                 </div>
 
                 <div class="price">
-                    <p class="prixProduitPanier">Prix : <span>${objet.totalPrice} €</span></p>   
+                    <p class="prixProduitPanier">Prix : <span> ${objet.quantite*objet.totalPrice} €</span></p>   
                 </div>
 
                 <div>
