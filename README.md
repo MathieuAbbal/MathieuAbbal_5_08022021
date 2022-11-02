@@ -1,6 +1,6 @@
 ![15675819263013_image1](https://user-images.githubusercontent.com/72860893/112007837-46a1ed00-8b25-11eb-81d6-a40c45250433.png)  
 
-Voici le cinquième projet de la formation de développeur Web Chez **OpenClassrooms**.  
+Cinquième projet de la formation de développeur Web Chez **OpenClassrooms**.  
 
  # Scénario #  
 Orinoco est un site de e-commerce qui veux se démarquer des grands site comme Amazon en créant des applications thématiques ne vendant qu’un seul groupe de produits. Il y a par exemple Oribook pour les livres ou Oritextil pour les vêtements.  
