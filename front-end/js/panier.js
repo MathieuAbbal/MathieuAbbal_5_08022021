@@ -110,7 +110,7 @@ form.addEventListener("submit", (e) => {
         };
         function postFetch() {
             // la requête POST 
-            fetch("http://localhost:3000/api/cameras/order", options)
+           fetch("https://mathieuabbal-5-08022021.onrender.com/api/cameras/order", options)
                 // reçoit les données du back
                 .then(response => { // me renvoie un premiere prommesse
                     if (response.ok) {
