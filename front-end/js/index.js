@@ -2,7 +2,7 @@
 const addHtml = document.getElementById('content');
 //fetch de l'API
 function afficheLesProduits() {
-  fetch('http://localhost:3000/api/cameras')
+  fetch('https://mathieuabbal-5-08022021.onrender.com/api/cameras')
     .then(response => { // me renvoie une première prommesse
       if (response.ok) {
         // Si response ok, retourne un objet json
