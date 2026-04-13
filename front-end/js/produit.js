@@ -5,7 +5,7 @@ const searchParams = new URLSearchParams(window.location.search);
 console.log(window.location.search); //ID apparait dans la console
 //injecte l'id du produit dans le fetch
 function afficheUnProduit (){
-fetch(`http://localhost:3000/api/cameras/${searchParams.get("id")}`)
+fetch(`https://mathieuabbal-5-08022021.onrender.com/api/cameras/${searchParams.get("id")}`)
     .then((response) => {
         // me renvoie une première prommesse
         if (response.ok) {
